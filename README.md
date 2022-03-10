@@ -35,14 +35,40 @@ required for completing the challenge.
 
 Try to produce something that is at least minimally functional. Part of the exercise is to see what you prioritize first when you have a limited amount of time. For any unfinished tasks, please do add `TODO` comments to your code with a short explanation. You will be given an opportunity later to go into more detail and explain how you would go about finishing those tasks.
 
-### How to setup
+### Running solution the easyway
 
-* Build the project using `make build`
-* Run the app using `make start`
+Use following commands:
+* `git clone git@github.com:jinojossy93/backend-coding-challenge-django.git`
+* `cd backend-coding-challenge-django/app`
+* `./manage.py runserver`
 * Access application with [url](http://0.0.0.0:8000/)
 * It will take you to login screen. Where you can use following credentials
     > username: jinojossy
     > password: thermondo
+* To create notes, You have to create [tags](http://0.0.0.0:8000/notes/tags/)
+* Now to create [notes](http://0.0.0.0:8000/notes/list/) with DRF UI
+* You can now logout using [url](http://0.0.0.0:8000/logout)
+* Even in logged out state you can access [notes](http://0.0.0.0:8000/notes/list/) with notes that are public, but cannot modify
+* Filter by tags is possible with [url](http://0.0.0.0:8000/filter)
+
+### How to setup
+
+* Build the project using `make build`
+* Run the app using `make start`
+* I used to implement with docker-compose but the script was going into error. Probably combatability issue with my mac M1.
+* Connect to CLI and run following command to get prepare database
+    > ./manage.py makemigrations
+    > ./manage.py migrate
+    > if [ "$DJANGO_SUPERUSER_USERNAME" ]
+        then
+            python manage.py createsuperuser \
+                --noinput \
+                --username $DJANGO_SUPERUSER_USERNAME \
+                --email $DJANGO_SUPERUSER_USERNAME
+        fi
+
+        $@
+* Access application with [url](http://0.0.0.0:8000/)
 * To create notes, You have to create [tags](http://0.0.0.0:8000/notes/tags/)
 * Now to create [notes](http://0.0.0.0:8000/notes/list/) with DRF UI
 * You can now logout using [url](http://0.0.0.0:8000/logout)
