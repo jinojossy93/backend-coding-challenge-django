@@ -13,7 +13,7 @@ class Note(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField()
     tags = models.ManyToManyField(Tag)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     public = models.BooleanField(default=True)
 
     def __str__(self) -> str:
