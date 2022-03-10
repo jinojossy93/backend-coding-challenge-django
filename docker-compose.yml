@@ -5,7 +5,7 @@ services:
     build:
       context: .
     # entrypoint: ./docker-entrypoint.sh
-    env_file: .env
+    # env_file: .env
     ports:
       - "127.0.0.1:8000:8000"
     volumes:

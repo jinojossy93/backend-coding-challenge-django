@@ -1,13 +1,10 @@
-from turtle import title
-
-from django.http import response
 from rest_framework.test import force_authenticate, APIRequestFactory
 
 from django.contrib.auth.models import User
 from django.test import TestCase
 
 from .models import Note, Tag
-from .serializers import NoteSerializer
+
 from .views import NoteViewSet, NoteList
 # Create your tests here.
 
@@ -62,7 +59,7 @@ class NoteModelViewTest1Case(TestCase):
 
     def test_response(self):
         factory = APIRequestFactory()
-        view = NoteViewSet.as_view({'get':'list'})
+        view = NoteViewSet.as_view({'get': 'list'})
         user = User.objects.get(username='jinojossy')
         notes = Note.objects.all()
 

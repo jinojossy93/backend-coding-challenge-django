@@ -10,5 +10,3 @@ WORKDIR /app
 COPY ./.env /.env
 COPY ./app /app
 RUN chmod +x ./docker-entrypoint.sh
-RUN adduser -D user
-USER user

@@ -1,6 +1,5 @@
-python manage.py makemigrations
-python manage.py migrate
-python manage.py createcachetable
+./manage.py makemigrations
+./manage.py migrate
 
 if [ "$DJANGO_SUPERUSER_USERNAME" ]
 then

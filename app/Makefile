@@ -7,4 +7,4 @@ start:
 	docker-compose up
 
 test:
-	docker-compose run --rm app sh -c "python manage.py test && flake8"
+	./manage.py test && flake8

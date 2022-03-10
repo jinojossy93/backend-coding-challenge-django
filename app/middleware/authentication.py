@@ -17,8 +17,10 @@ class LoginRequiredMiddleware(MiddlewareMixin):
             path = request.path_info.lstrip('/')
             if not any(m.match(path) for m in EXEMPT_URLS):
                 redirect_to = settings.LOGIN_URL
-                # 'next' variable to support redirection to attempted page after login
+                # 'next' variable to support redirection to 
+                # attempted page after login
                 if len(path) > 0:
-                    redirect_to = f"{settings.LOGIN_URL}?next={request.path_info}"
+                    redirect_to = f"{settings.LOGIN_URL}\
+                        ?next={request.path_info}"
 
                 return HttpResponseRedirect(redirect_to)
